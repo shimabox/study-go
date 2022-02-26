@@ -22,6 +22,10 @@ func Sqrt(x float64) float64 {
 
 func main() {
 	var x float64 = 6
-	fmt.Println("Sqrt", Sqrt(x))
-	fmt.Println("math.Sqrt", math.Sqrt(x))
+	actual := Sqrt(x)
+	expected := math.Sqrt(x)
+
+	fmt.Println("Sqrt", actual)
+	fmt.Println("math.Sqrt", expected)
+	fmt.Println("result", math.Abs(expected-actual))
 }
