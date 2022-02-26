@@ -11,6 +11,7 @@ func Sqrt(x float64) float64 {
 	diff := 0.00000001 // こんなもんでいいのかな
 	for i := 0; i < 10; i++ {
 		z -= (z*z - x) / (2 * z)
+		fmt.Println(i+1, z)
 		if math.Abs(tmp-z) < diff { // tmp-z < diff だと最初の1回目に左辺がマイナスになるので絶対値(math.Abs)で計算する
 			break
 		}
