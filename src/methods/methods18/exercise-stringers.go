@@ -1,12 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
 
 type IPAddr [4]byte
 
 func (ip IPAddr) String() string {
-	// IPAddrは[4]byteなので愚直にこれでもいいはず
-	return fmt.Sprintf("%d.%d.%d.%d", ip[0], ip[1], ip[2], ip[3])
+	list := []string{}
+	for _, v := range ip {
+		// fmt.Printf("%T", v) => uint8
+		// vはuint8なのでstringに変換
+		// int(v)でintにしてからstrconv.Itoa()してappend
+		list = append(list, strconv.Itoa(int(v)))
+	}
+	// . で結合して返す
+	return fmt.Sprint(strings.Join(list, "."))
 }
 
 func main() {
